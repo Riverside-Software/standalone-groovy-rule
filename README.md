@@ -1,0 +1,4 @@
+```
+mvn package assembly:single
+```
+
