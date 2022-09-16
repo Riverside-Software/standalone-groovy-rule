@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,7 +58,7 @@ public class GroovyRule {
         str = str.substring(0, colonPos);
       }
       System.out.println("Reading " + dbName + " schema from " + str);
-      dbs.add(new DatabaseWrapper(DumpFileUtils.getDatabaseDescription(new File(str), dbName)));
+      dbs.add(new DatabaseWrapper(DumpFileUtils.getDatabaseDescription(Path.of(str), dbName)));
     }
     Schema schema = new Schema(dbs.toArray(new IDatabase[] {}));
     schema.injectMetaSchema();
